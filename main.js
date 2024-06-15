@@ -23,6 +23,11 @@ function addWord() {
 
 function updateWordList() {
     wordList.innerHTML = "";
+    words.forEach(word => {
+        const li = document.createElement("li");
+        li.textContent = word;
+        wordList.appendChild(li);
+    });
 }
 
 document.getElementById("searchInput").addEventListener("keydown", function(event) {
