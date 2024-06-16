@@ -22,11 +22,15 @@ function addWord() {
 }
 
 function updateWordList() {
-    wordList.innerHTML = "";
+    const wordList = document.getElementById("wordList");
+
     words.forEach(word => {
-        const li = document.createElement("li");
-        li.textContent = word;
-        wordList.appendChild(li);
+        if (!wordList.contains(document.getElementById(`word-${word}`))) {
+            const li = document.createElement("li");
+            li.id = `word-${word}`;
+            li.textContent = word;
+            wordList.appendChild(li);
+        }
     });
 }
 
